@@ -1,0 +1,18 @@
+<h1>Weather Forecast Search</h1>
+<%= form_with(url: forecast_path, method: "get", local: true) do |form| %>
+  <div class="input-group mb-3">
+    <%= form.text_field :address, class: "form-control", placeholder: "Enter address" %>
+    <div class="input-group-append">
+    <%= form.submit "Search", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+
+<h2>Recently Searched Forecasts</h2>
+<div class="list-group">
+  <% @recently_searched.each do |forecast| %>
+    <%= link_to forecast_path(forecast), class: "list-group-item list-group-item-action" do %>
+      <%= forecast["condition"]["text"] %>
+    <% end %>
+  <% end %>
+</div>

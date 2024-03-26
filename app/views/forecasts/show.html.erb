@@ -1,0 +1,30 @@
+<div class="container">
+  <% @forecasts.each do |forecast| %>
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5 class="card-title">Forecast for <%= forecast["condition"]["text"] %></h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <img src="<%= forecast["condition"]["icon"] %>" alt="Weather Icon" class="img-fluid">
+          </div>
+          <div class="col-sm-6">
+            <p>Max Temperature: <%= forecast["maxtemp_c"] %>°C / <%= forecast["maxtemp_f"] %>°F</p>
+            <p>Min Temperature: <%= forecast["mintemp_c"] %>°C / <%= forecast["mintemp_f"] %>°F</p>
+            <p>Average Temperature: <%= forecast["avgtemp_c"] %>°C / <%= forecast["avgtemp_f"] %>°F</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <p>Max Wind: <%= forecast["maxwind_mph"] %> mph / <%= forecast["maxwind_kph"] %> kph</p>
+            <p>Total Precipitation: <%= forecast["totalprecip_mm"] %> mm / <%= forecast["totalprecip_in"] %> in</p>
+            <p>Average Visibility: <%= forecast["avgvis_km"] %> km / <%= forecast["avgvis_miles"] %> miles</p>
+            <p>Average Humidity: <%= forecast["avghumidity"] %>%</p>
+            <p>UV Index: <%= forecast["uv"] %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
