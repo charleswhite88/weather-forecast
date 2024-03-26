@@ -1,5 +1,5 @@
 class ForecastsController < ApplicationController
-  before_action: permit_weather_params, only: :show
+  before_action: :permit_weather_params, only: :show
 
   def index
     @recently_searched = recently_searched
